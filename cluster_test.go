@@ -51,5 +51,4 @@ func TestNewCluster(t *testing.T) {
 	assert.Equal(t, c.TileSize, 512, "they shoud be equal")
 	assert.Equal(t, c.MinBranch, 32, "they shoud be equal")
 	assert.Equal(t, c.MaxBranch, 64, "they shoud be equal")
-
 }
