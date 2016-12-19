@@ -1,0 +1,509 @@
+[
+  {
+    "X": 0.6196880942621363,
+    "Y": 0.8731298770453733,
+    "Zoom": 0,
+    "Coordinates": {
+      "Lon": 43.08771393436908,
+      "Lat": -79.04411780507252
+    },
+    "GeoPointIDs": [
+      "no_id"
+    ],
+    "GeoPointObjects": null
+  },
+  {
+    "X": 0.5157969335090982,
+    "Y": 0.7214301203612649,
+    "Zoom": 0,
+    "Coordinates": {
+      "Lon": 5.686896063275327,
+      "Lat": -62.06181800038502
+    },
+    "GeoPointIDs": [
+      "no_id"
+    ],
+    "GeoPointObjects": null
+  },
+  {
+    "X": 0.42897696687498355,
+    "Y": 0.6816930343664334,
+    "Zoom": 0,
+    "Coordinates": {
+      "Lon": -25.568291925005923,
+      "Lat": -54.58299719960377
+    },
+    "GeoPointIDs": [
+      "no_id"
+    ],
+    "GeoPointObjects": null
+  },
+  {
+    "X": 0.53283896888674,
+    "Y": 0.33363414933766167,
+    "Zoom": 0,
+    "Coordinates": {
+      "Lon": 11.822028799226407,
+      "Lat": 51.258313644180184
+    },
+    "GeoPointIDs": [
+      "no_id"
+    ],
+    "GeoPointObjects": null
+  },
+  {
+    "X": 0.45019990795571274,
+    "Y": 0.4256179917660221,
+    "Zoom": 0,
+    "Coordinates": {
+      "Lon": -17.928033135943423,
+      "Lat": 25.852793816021233
+    },
+    "GeoPointIDs": [
+      "no_id"
+    ],
+    "GeoPointObjects": null
+  },
+  {
+    "X": 0.29425915274737935,
+    "Y": 0.7277385746362349,
+    "Zoom": 0,
+    "Coordinates": {
+      "Lon": -74.06670501094342,
+      "Lat": -116.89262854726002
+    },
+    "GeoPointIDs": [
+      "no_id"
+    ],
+    "GeoPointObjects": null
+  },
+  {
+    "X": 0.29310355378904607,
+    "Y": 0.6545326022590526,
+    "Zoom": 0,
+    "Coordinates": {
+      "Lon": -74.48272063594342,
+      "Lat": -131.48540198476002
+    },
+    "GeoPointIDs": [
+      "no_id"
+    ],
+    "GeoPointObjects": null
+  },
+  {
+    "X": 0.2900226347352266,
+    "Y": 0.6015828058769686,
+    "Zoom": 0,
+    "Coordinates": {
+      "Lon": -75.59185149531842,
+      "Lat": -145.68681800038502
+    },
+    "GeoPointIDs": [
+      "no_id"
+    ],
+    "GeoPointObjects": null
+  },
+  {
+    "X": 0.61233950182048,
+    "Y": 0.6866691329093115,
+    "Zoom": 0,
+    "Coordinates": {
+      "Lon": 40.44222065537283,
+      "Lat": -124.39201745043425
+    },
+    "GeoPointIDs": [
+      "no_id"
+    ],
+    "GeoPointObjects": null
+  },
+  {
+    "X": 0.5635771187847057,
+    "Y": 0.7764450447070128,
+    "Zoom": 0,
+    "Coordinates": {
+      "Lon": 22.887762762494077,
+      "Lat": -109.96983801991627
+    },
+    "GeoPointIDs": [
+      "no_id"
+    ],
+    "GeoPointObjects": null
+  },
+  {
+    "X": 0.663200226694862,
+    "Y": 1,
+    "Zoom": 0,
+    "Coordinates": {
+      "Lon": 58.75208161015033,
+      "Lat": -93.18211829335377
+    },
+    "GeoPointIDs": [
+      "no_id"
+    ],
+    "GeoPointObjects": null
+  },
+  {
+    "X": 0.6166429416484402,
+    "Y": 0.7764996806207485,
+    "Zoom": 0,
+    "Coordinates": {
+      "Lon": 41.9914589934385,
+      "Lat": -70.03687833567446
+    },
+    "GeoPointIDs": [
+      "no_id"
+    ],
+    "GeoPointObjects": null
+  },
+  {
+    "X": 0.3448254233636988,
+    "Y": 0.7546348632727586,
+    "Zoom": 0,
+    "Coordinates": {
+      "Lon": -55.86284758906842,
+      "Lat": -67.16942298085377
+    },
+    "GeoPointIDs": [
+      "no_id"
+    ],
+    "GeoPointObjects": null
+  },
+  {
+    "X": 0.51214991338106,
+    "Y": 0.5207736996170008,
+    "Zoom": 0,
+    "Coordinates": {
+      "Lon": 4.373968817181577,
+      "Lat": -7.457386848041267
+    },
+    "GeoPointIDs": [
+      "no_id"
+    ],
+    "GeoPointObjects": null
+  },
+  {
+    "X": 0.6029832806228134,
+    "Y": 0.46918656154514976,
+    "Zoom": 0,
+    "Coordinates": {
+      "Lon": 37.07398102421283,
+      "Lat": 11.024180534771233
+    },
+    "GeoPointIDs": [
+      "no_id"
+    ],
+    "GeoPointObjects": null
+  },
+  {
+    "X": 0.3642637642925183,
+    "Y": 0.6916003626612555,
+    "Zoom": 0,
+    "Coordinates": {
+      "Lon": -48.86504485469342,
+      "Lat": -123.40202796132252
+    },
+    "GeoPointIDs": [
+      "no_id"
+    ],
+    "GeoPointObjects": null
+  },
+  {
+    "X": 0.3207826580642197,
+    "Y": 0.3706716482993794,
+    "Zoom": 0,
+    "Coordinates": {
+      "Lon": -64.51824309688092,
+      "Lat": 137.85425865977123
+    },
+    "GeoPointIDs": [
+      "no_id"
+    ],
+    "GeoPointObjects": null
+  },
+  {
+    "X": 0.7297502483962509,
+    "Y": 0.7437100814201203,
+    "Zoom": 0,
+    "Coordinates": {
+      "Lon": 82.71008942265033,
+      "Lat": -114.40569007069752
+    },
+    "GeoPointIDs": [
+      "no_id"
+    ],
+    "GeoPointObjects": null
+  },
+  {
+    "X": 0.6662852147590981,
+    "Y": 0.63599756502973,
+    "Zoom": 0,
+    "Coordinates": {
+      "Lon": 59.86267731327533,
+      "Lat": -43.90080725819752
+    },
+    "GeoPointIDs": [
+      "no_id"
+    ],
+    "GeoPointObjects": null
+  },
+  {
+    "X": 0.42903800203123355,
+    "Y": 0.35910073068152853,
+    "Zoom": 0,
+    "Coordinates": {
+      "Lon": -25.546319268755923,
+      "Lat": 45.15870201914623
+    },
+    "GeoPointIDs": [
+      "no_id"
+    ],
+    "GeoPointObjects": null
+  },
+  {
+    "X": 0.4483610543315808,
+    "Y": 0.5167621945699438,
+    "Zoom": 0,
+    "Coordinates": {
+      "Lon": -18.590020440630923,
+      "Lat": -173.97673499257252
+    },
+    "GeoPointIDs": [
+      "no_id"
+    ],
+    "GeoPointObjects": null
+  },
+  {
+    "X": 0.42471603480033077,
+    "Y": 0.7814130572108786,
+    "Zoom": 0,
+    "Coordinates": {
+      "Lon": -27.102227471880923,
+      "Lat": -109.36790930897877
+    },
+    "GeoPointIDs": [
+      "no_id"
+    ],
+    "GeoPointObjects": null
+  },
+  {
+    "X": 0.5570858603754176,
+    "Y": 0.1399875637194682,
+    "Zoom": 0,
+    "Coordinates": {
+      "Lon": 20.550909735150327,
+      "Lat": 101.89063561289623
+    },
+    "GeoPointIDs": [
+      "no_id"
+    ],
+    "GeoPointObjects": null
+  },
+  {
+    "X": 0.689871672431777,
+    "Y": 0.5369576978015371,
+    "Zoom": 0,
+    "Coordinates": {
+      "Lon": 68.35380207543972,
+      "Lat": -166.81321268769543
+    },
+    "GeoPointIDs": [
+      "no_id"
+    ],
+    "GeoPointObjects": null
+  },
+  {
+    "X": 0.48347593605901135,
+    "Y": 0.9065213715331559,
+    "Zoom": 0,
+    "Coordinates": {
+      "Lon": -5.948663018755923,
+      "Lat": -81.10832678944752
+    },
+    "GeoPointIDs": [
+      "no_id"
+    ],
+    "GeoPointObjects": null
+  },
+  {
+    "X": 0.37905443731008165,
+    "Y": 0.39958170926730074,
+    "Zoom": 0,
+    "Coordinates": {
+      "Lon": -43.5404025683706,
+      "Lat": 146.03379804609568
+    },
+    "GeoPointIDs": [
+      "no_id"
+    ],
+    "GeoPointObjects": null
+  },
+  {
+    "X": 0.40248804814668493,
+    "Y": 0.2765352145044595,
+    "Zoom": 0,
+    "Coordinates": {
+      "Lon": -35.10430266719342,
+      "Lat": 117.59693444102123
+    },
+    "GeoPointIDs": [
+      "no_id"
+    ],
+    "GeoPointObjects": null
+  },
+  {
+    "X": 0.5416505779860946,
+    "Y": 0.9483734414205964,
+    "Zoom": 0,
+    "Coordinates": {
+      "Lon": 14.994208074994077,
+      "Lat": -83.15874182851002
+    },
+    "GeoPointIDs": [
+      "no_id"
+    ],
+    "GeoPointObjects": null
+  },
+  {
+    "X": 0.7322952448697753,
+    "Y": 0.5955209258786377,
+    "Zoom": 0,
+    "Coordinates": {
+      "Lon": 83.62628815311908,
+      "Lat": -32.49150550038502
+    },
+    "GeoPointIDs": [
+      "no_id"
+    ],
+    "GeoPointObjects": null
+  },
+  {
+    "X": 0.550332320336355,
+    "Y": 0.39874693321604643,
+    "Zoom": 0,
+    "Coordinates": {
+      "Lon": 18.119635321087827,
+      "Lat": 145.78492272227123
+    },
+    "GeoPointIDs": [
+      "no_id"
+    ],
+    "GeoPointObjects": null
+  },
+  {
+    "X": 0.5536210980056259,
+    "Y": 0.4625372173413302,
+    "Zoom": 0,
+    "Coordinates": {
+      "Lon": 19.303595282025327,
+      "Lat": 166.63624108164623
+    },
+    "GeoPointIDs": [
+      "no_id"
+    ],
+    "GeoPointObjects": null
+  },
+  {
+    "X": 0.4577645374044974,
+    "Y": 0.5946477069673324,
+    "Zoom": 0,
+    "Coordinates": {
+      "Lon": -15.204766534380923,
+      "Lat": -147.77403723866627
+    },
+    "GeoPointIDs": [
+      "no_id"
+    ],
+    "GeoPointObjects": null
+  },
+  {
+    "X": 0.5726610149978134,
+    "Y": 0.5406378260537862,
+    "Zoom": 0,
+    "Coordinates": {
+      "Lon": 26.157965399212827,
+      "Lat": -14.473194953510017
+    },
+    "GeoPointIDs": [
+      "no_id"
+    ],
+    "GeoPointObjects": null
+  },
+  {
+    "X": 0.6511561254036293,
+    "Y": 0.3882564508877811,
+    "Zoom": 0,
+    "Coordinates": {
+      "Lon": 54.41620514530658,
+      "Lat": 142.72059166758373
+    },
+    "GeoPointIDs": [
+      "no_id"
+    ],
+    "GeoPointObjects": null
+  },
+  {
+    "X": 0.5861858969965114,
+    "Y": 0.34212761301022254,
+    "Zoom": 0,
+    "Coordinates": {
+      "Lon": 31.026922918744077,
+      "Lat": 130.69520104258373
+    },
+    "GeoPointIDs": [
+      "no_id"
+    ],
+    "GeoPointObjects": null
+  },
+  {
+    "X": 0.6665578384570148,
+    "Y": 0.47296220143750023,
+    "Zoom": 0,
+    "Coordinates": {
+      "Lon": 59.96082184452533,
+      "Lat": 170.31287682383373
+    },
+    "GeoPointIDs": [
+      "no_id"
+    ],
+    "GeoPointObjects": null
+  },
+  {
+    "X": 0.5825388768684732,
+    "Y": 1,
+    "Zoom": 0,
+    "Coordinates": {
+      "Lon": 29.713995672650327,
+      "Lat": -85.27092444569752
+    },
+    "GeoPointIDs": [
+      "no_id"
+    ],
+    "GeoPointObjects": null
+  },
+  {
+    "X": 0.40669540491751827,
+    "Y": 0.8706414404393925,
+    "Zoom": 0,
+    "Coordinates": {
+      "Lon": -33.58965422969342,
+      "Lat": -78.87254798085377
+    },
+    "GeoPointIDs": [
+      "no_id"
+    ],
+    "GeoPointObjects": null
+  },
+  {
+    "X": 0.5114878171591256,
+    "Y": 0.666386109962079,
+    "Zoom": 0,
+    "Coordinates": {
+      "Lon": 4.135614177285231,
+      "Lat": -51.26287766987179
+    },
+    "GeoPointIDs": [
+      "no_id"
+    ],
+    "GeoPointObjects": null
+  }
+]

@@ -9,6 +9,8 @@ package cluster
 import (
 	"math"
 	"github.com/dhconnelly/rtreego"
+	"fmt"
+	"errors"
 )
 
 
@@ -85,11 +87,11 @@ type Cluster struct {
 // TileSize = 512 (GMaps and OSM default)
 // MinBranch = 32
 // MinBranch = 64
-func NewCluster() Cluster {
-	return Cluster{
+func NewCluster() *Cluster {
+	return &Cluster{
 		MinZoom:   0,
-		MaxZoom:   18,
-		PointSize: 50,
+		MaxZoom:   16,
+		PointSize: 40,
 		TileSize:  512,
 		MinBranch: 32,
 		MaxBranch: 64,
@@ -129,24 +131,99 @@ func (c *Cluster) ClusterPointsWithProducer(points []GeoPoint, pointProducer Clu
 		//create index from clusters from previous iteration
 		idx := rtreego.NewTree(2, c.MinBranch, c.MaxBranch)
 		for _, p := range clusters {
-			idx.Insert(p)
+			if err := insertIndex(idx,p); err != nil {
+				fmt.Println(err.Error())
+			}
 		}
 		c.Indexes[z+1] = idx
 		//create clusters for level up using just created index
 		clusters = c.clusterize(clusters, z, pointProducer)
+		//checkCluster(clusters)
+		fmt.Println("Clusterizing results: ",z,"   :    ", len(clusters),"   ::   ",clusters)
 	}
 
 	//index topmost points
 	idx := rtreego.NewTree(2, c.MinBranch, c.MaxBranch)
 	for _, p := range clusters {
-		idx.Insert(p)
+		if err := insertIndex(idx,p); err != nil {
+			fmt.Println(err.Error())
+		}
 	}
 	c.Indexes[c.MinZoom] = idx
 	return nil
 }
 
-func (c *Cluster)GetTile(x,y,z int) []ClusteredPoint {
+func insertIndex(tree *rtreego.Rtree, obj rtreego.Spatial) (err error) {
+	defer func () {
+		if (recover() != nil) {
+			str := fmt.Sprintf("Error inserting object %+v",obj)
+			err = errors.New(str)
+		}
+	}()
 
+	tree.Insert(obj)
+	return nil
+}
+
+func checkCluster(points []ClusteredPoint) {
+	for _, v := range points {
+		if _,_,z := v.GetXYZ(); z == InfinityZoomLevel {
+			fmt.Println("zoom level is wrong !!!!", z)
+		} else {
+			fmt.Println("ok with zoom level is wrong <<", z)
+		}
+	}
+
+}
+
+
+
+//return points for  Tile with coordinates x and y and for zoom z
+func (c *Cluster)GetTile(x,y,z int) []ClusteredPoint {
+	index := c.Indexes[z]
+	z2 := 1 << uint(z)
+	z2f := float64(z2)
+	extent := c.TileSize
+	r := c.PointSize
+	p := r / extent
+	top := float64(y - p)/z2f
+	bottom := float64(y+1+p) / z2f
+
+	bbox := newRect(
+		float64(x-p)/ z2f ,
+		float64(top),
+		float64(x+1+p)/z2f,
+		bottom,
+	)
+	result := index.SearchIntersect(bbox)
+	if (x == 0) {
+		bbox = newRect(
+			float64(1-p)/z2f,
+			float64(top),
+			1.0,
+			float64(bottom),
+		)
+		xp :=index.SearchIntersect(bbox)
+		result = append(result, xp...)
+	}
+	if x == (z2-1) {
+		bbox = newRect(0.0,float64(top),float64(p)/z2f,float64(bottom))
+		zp := index.SearchIntersect(bbox)
+		result = append(result,zp ...)
+	}
+	rr := make ([]ClusteredPoint, len(result))
+	for i := range result {
+		rr[i] = result[i].(ClusteredPoint)
+	}
+	return rr
+}
+
+func newRect(minX, minY, maxX, maxY float64) *rtreego.Rect {
+	p := rtreego.Point{minX, minY}
+	sizeX := maxX - minX
+	sizeY := maxY - minY
+	r , _ := rtreego.NewRect(p, []float64{sizeX, sizeY})
+	return r
 }
 
 
@@ -161,7 +238,8 @@ func (c *Cluster)clusterize(clusters []ClusteredPoint, zoom int, pp ClusteredPoi
 		if _, _, z := p.GetXYZ(); z <= zoom {
 			continue
 		} else {
-			p.SetZoom(z)
+			p.SetZoom(zoom)
+			fmt.Println("SSSSSSSETTTTTT new ZZZZZ:",zoom,p)
 		}
 
 		//find all neighbours
@@ -169,9 +247,9 @@ func (c *Cluster)clusterize(clusters []ClusteredPoint, zoom int, pp ClusteredPoi
 
 		wx, wy, _ := p.GetXYZ()
 		bbox := rtreego.Point{ wx, wy }.ToRect(r / 2.0)
+		fmt.Println("BBBBBBBBBB: ",r,"   :   ", bbox)
 		neighbours := tree.SearchIntersect(bbox)
 
-		found := false
 		nPoints := p.PointsCount()
 		wx = wx * float64(nPoints)
 		wy = wy * float64(nPoints)
@@ -181,7 +259,6 @@ func (c *Cluster)clusterize(clusters []ClusteredPoint, zoom int, pp ClusteredPoi
 			b := nb.(ClusteredPoint)
 			bx, by, bz := b.GetXYZ()
 			if ((zoom) < bz) && (dist(p,b) < r) {
-				found = true
 				wx += bx * float64(b.PointsCount())
 				wy += by * float64(b.PointsCount())
 				nPoints += nPoints
@@ -191,15 +268,22 @@ func (c *Cluster)clusterize(clusters []ClusteredPoint, zoom int, pp ClusteredPoi
 		}
 
 		var newClaster ClusteredPoint
-		if found {
-			newClaster = p
+		if len(neighbours) <= 1 {
+			if len(neighbours) == 0 {
+				panic("Neigbours number is 0, impossible")
+			}
+			newClaster = pp.NewPointWithPoints([]ClusteredPoint{p}, wx, wy, InfinityZoomLevel)
+			//fmt.Println("newCluster", newClaster)
+			//fmt.Println("Created point from point")
 		} else {
 			wx = wx / float64(nPoints)
 			wy = wy / float64(nPoints)
 			newClaster = pp.NewPointWithPoints(foundNeighbours, wx, wy, InfinityZoomLevel)
+			fmt.Println("Created point from neighbous", len(neighbours), " : ", newClaster)
 		}
 		result = append(result, newClaster)
 	}
+	//checkCluster(clusters)
 	return result
 }
 
@@ -222,22 +306,31 @@ func (pp *SimpleClusteredPointsProducer)NewPoint(geoPoint GeoPoint) ClusteredPoi
 	}
 	cp.GeoPointIDs = []string{geoPoint.GeoPointID()}
 	cp.Coordinates = geoPoint.GetCoordinates()
-	cp.X, cp.Y = mercatorProjection(cp.Coordinates)
+	cp.X, cp.Y = MercatorProjection(cp.Coordinates)
 	cp.Zoom = InfinityZoomLevel
 	return &cp
 }
 
 func (pp *SimpleClusteredPointsProducer) NewPointWithPoints(points []ClusteredPoint, x,y float64, zoom int) ClusteredPoint {
 	cp := SimpleClusteredPoint{}
+	nPoints := 0
+	wx := 0.0
+	wy := 0.0
+	//fmt.Printf(">>>>>> starting to process new point %+v",points)
 	for _, gp := range points {
 		p := gp.(*SimpleClusteredPoint)
-		p.SetXY(x,y)
-		p.SetZoom(zoom)
 		if pp.DeepLink {
 			cp.GeoPointObjects = append(cp.GeoPointObjects, p.GeoPointObjects...)
 		}
-		cp.GeoPointIDs = append( cp.GeoPointIDs, cp.GeoPointIDs...)
+		cp.GeoPointIDs = append( cp.GeoPointIDs, p.GeoPointIDs...)
+		px, py, _ := p.GetXYZ()
+		wx = wx + (px * float64(p.PointsCount()))
+		wy = wy + (py * float64(p.PointsCount()))
+		nPoints = nPoints + p.PointsCount()
 	}
+
+	cp.SetXY(wx / float64(nPoints),wy / float64(nPoints))
+	cp.SetZoom(zoom)
 	return &cp
 }
 
@@ -273,7 +366,8 @@ func (bcp *BasicClusteredPoint)PointsCount() int{
 
 func (bcp *BasicClusteredPoint)Bounds() *rtreego.Rect{
 	const df = 0.000001 //11cm
-	return rtreego.Point{bcp.X, bcp.Y}.ToRect(df)
+	p :=rtreego.Point{bcp.X, bcp.Y}.ToRect(df)
+	return p
 }
 
 
@@ -309,11 +403,22 @@ func translatePointsToClusters(points []GeoPoint, pointProducer ClusteredPointsP
 }
 
 
-func mercatorProjection(coordinates GeoCoordinates) (float64, float64) {
-	const mercatorPole = 20037508.34
-	x := mercatorPole / 180.0 * coordinates.Lon
-	y := math.Log(math.Tan((90.0 + coordinates.Lat) * math.Pi / 360.0)) / math.Pi * mercatorPole
-	y = math.Max(-mercatorPole, math.Min(y, mercatorPole))
+//function lngX(lng) {
+//return lng / 360 + 0.5;
+//}
+//function latY(lat) {
+//var sin = Math.sin(lat * Math.PI / 180),
+//y = (0.5 - 0.25 * Math.log((1 + sin) / (1 - sin)) / Math.PI);
+//return y < 0 ? 0 :
+//y > 1 ? 1 : y;
+//}
+// longitude/latitude to spherical mercator in [0..1] range
+func MercatorProjection(coordinates GeoCoordinates) (float64, float64) {
+	x := coordinates.Lon / 360.0 + 0.5
+	sin := math.Sin(coordinates.Lat * math.Pi / 180.0)
+	y := (0.5 - 0.25 * math.Log((1+sin) / (1-sin)) / math.Pi )
+	if y < 0 { y = 0 }
+	if y > 1 { y = 1 }
 	return x, y
 }
 
