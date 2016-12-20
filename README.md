@@ -4,7 +4,7 @@ Please look at [godocs here](https://godoc.org/github.com/MadAppGang/gocluster).
 
 Gocluster is a very fast Golang library for geospatial point clustering.
 
-This image is demo of JS library, this will work faster, because Golang is fatser :-)
+This image is demo of JS library, this will work faster, because Golang is faster :-)
 
 TODO: implement goserver example
 
