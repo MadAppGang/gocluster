@@ -1,0 +1,799 @@
+{
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "scalerank": 5,
+        "name": "Cabo Bojador",
+        "comment": null,
+        "name_alt": null,
+        "lat_y": 26.157836,
+        "long_x": -14.473111,
+        "region": "Africa",
+        "subregion": null,
+        "featureclass": "cape"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -14.473194953510028,
+          26.157965399212813
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "scalerank": 5,
+        "name": "Rockall",
+        "comment": null,
+        "name_alt": null,
+        "lat_y": 58.163524,
+        "long_x": -12.408715,
+        "region": "Seven seas (open ocean)",
+        "subregion": "North Atlantic Ocean",
+        "featureclass": "island"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -12.408741828510014,
+          58.16339752811905
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "scalerank": 5,
+        "name": "Cabo Fisterra",
+        "comment": null,
+        "name_alt": null,
+        "lat_y": 42.952418,
+        "long_x": -9.267837,
+        "region": "Europe",
+        "subregion": null,
+        "featureclass": "cape"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -9.269962828651519,
+          42.928736057812586
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "scalerank": 5,
+        "name": "Nordkapp",
+        "comment": null,
+        "name_alt": null,
+        "lat_y": 71.18337,
+        "long_x": 25.662398,
+        "region": "Europe",
+        "subregion": null,
+        "featureclass": "cape"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.660675197114738,
+          71.15450206702127
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cluster": true,
+        "point_count": 2,
+        "point_count_abbreviated": 2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          58.17884131178048,
+          20.35815855839475
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cluster": true,
+        "point_count": 2,
+        "point_count_abbreviated": 2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          51.74864167208707,
+          13.747843726168071
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "scalerank": 3,
+        "name": "Victoria Falls",
+        "comment": null,
+        "name_alt": null,
+        "lat_y": -17.77079,
+        "long_x": 25.460133,
+        "region": "Africa",
+        "subregion": null,
+        "featureclass": "waterfall"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.85279381602121,
+          -17.92803313594341
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cluster": true,
+        "point_count": 3,
+        "point_count_abbreviated": 3
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.09204991297768,
+          -34.43271321172047
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cluster": true,
+        "point_count": 3,
+        "point_count_abbreviated": 3
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          34.45439700612539,
+          -24.864518302156142
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "scalerank": 5,
+        "name": "Cabo Delgado",
+        "comment": null,
+        "name_alt": null,
+        "lat_y": -10.670103,
+        "long_x": 40.624309,
+        "region": "Africa",
+        "subregion": null,
+        "featureclass": "cape"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+           40.62440026133375,
+          -10.670098565630923
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "scalerank": 5,
+        "name": "Cape Ince",
+        "comment": null,
+        "name_alt": null,
+        "lat_y": 42.084312,
+        "long_x": 34.983358,
+        "region": "Asia",
+        "subregion": null,
+        "featureclass": "cape"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          34.98328698008374,
+          42.08417389530658
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "scalerank": 4,
+        "name": "Lands End",
+        "comment": null,
+        "name_alt": null,
+        "lat_y": 50.069677,
+        "long_x": -5.668629,
+        "region": "Europe",
+        "subregion": "British Isles",
+        "featureclass": "cape"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -5.668629523822513,
+          50.06970856327533
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "scalerank": 3,
+        "name": "Cap Bon",
+        "comment": null,
+        "name_alt": null,
+        "lat_y": 37.073954,
+        "long_x": 11.024061,
+        "region": "Africa",
+        "subregion": null,
+        "featureclass": "cape"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.02418053477125,
+          37.07398102421283
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cluster": true,
+        "point_count": 3,
+        "point_count_abbreviated": 3
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          48.07663007904207,
+          -14.479159269579085
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "scalerank": 3,
+        "name": "Cape Palmas",
+        "comment": null,
+        "name_alt": null,
+        "lat_y": 4.373924,
+        "long_x": -7.457356,
+        "region": "Africa",
+        "subregion": null,
+        "featureclass": "cape"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -7.457386848041272,
+          4.373968817181577
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "scalerank": 4,
+        "name": "Cap Lopez",
+        "comment": null,
+        "name_alt": null,
+        "lat_y": -0.604761,
+        "long_x": 8.726423,
+        "region": "Africa",
+        "subregion": null,
+        "featureclass": "cape"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.727299789450322,
+          -0.6150864905131215
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "scalerank": 4,
+        "name": "Cape Vohimena",
+        "comment": null,
+        "name_alt": null,
+        "lat_y": -25.546355,
+        "long_x": 45.158683,
+        "region": "Africa",
+        "subregion": "Indian Ocean",
+        "featureclass": "cape"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          45.15870201914625,
+          -25.546319268755937
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cluster": true,
+        "point_count": 2,
+        "point_count_abbreviated": 2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.1791820717452,
+          21.041862372737015
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cluster": true,
+        "point_count": 2,
+        "point_count_abbreviated": 2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.001258229175923,
+          -10.983800572570914
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cluster": true,
+        "point_count": 2,
+        "point_count_abbreviated": 2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -9.12166297108815,
+          34.84009503827912
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "scalerank": 5,
+        "name": "Bermuda Islands",
+        "comment": null,
+        "name_alt": null,
+        "lat_y": 32.317339,
+        "long_x": -64.742895,
+        "region": "Seven seas (open ocean)",
+        "subregion": "North Atlantic Ocean",
+        "featureclass": "island"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -64.74290930897877,
+          32.31726715702534
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "scalerank": 2,
+        "name": "Salto Angel",
+        "comment": null,
+        "name_alt": "Angel Falls",
+        "lat_y": 5.686836,
+        "long_x": -62.061848,
+        "region": "South America",
+        "subregion": null,
+        "featureclass": "waterfall"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -62.06181800038501,
+          5.686896063275327
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cluster": true,
+        "point_count": 2,
+        "point_count_abbreviated": 2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -51.6931887884752,
+          -27.08020014069688
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "scalerank": 5,
+        "name": "Cabo Tres Puntas",
+        "comment": null,
+        "name_alt": null,
+        "lat_y": -47.237629,
+        "long_x": -65.774707,
+        "region": "South America",
+        "subregion": null,
+        "featureclass": "cape"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -65.74439816328368,
+          -47.328778975372465
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cluster": true,
+        "point_count": 3,
+        "point_count_abbreviated": 3
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -40.67445828541464,
+          -20.819491458450955
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cluster": true,
+        "point_count": 2,
+        "point_count_abbreviated": 2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -67.82385378326413,
+          42.73462992065626
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cluster": true,
+        "point_count": 2,
+        "point_count_abbreviated": 2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -66.19151770741627,
+          -55.25646186230186
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cluster": true,
+        "point_count": 2,
+        "point_count_abbreviated": 2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -37.75079946723074,
+          -4.0051561445005035
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cluster": true,
+        "point_count": 2,
+        "point_count_abbreviated": 2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -63.90147545153319,
+          -42.845471679235374
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cluster": true,
+        "point_count": 3,
+        "point_count_abbreviated": 3
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.40853442915213,
+          -36.49122737050087
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "scalerank": 5,
+        "name": "Cabo Orange",
+        "comment": null,
+        "name_alt": null,
+        "lat_y": 4.125735,
+        "long_x": -51.242144,
+        "region": "South America",
+        "subregion": null,
+        "featureclass": "cape"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -51.26287766987179,
+          4.135614177285231
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "scalerank": 5,
+        "name": "Miquelon",
+        "comment": null,
+        "name_alt": null,
+        "lat_y": 46.929526,
+        "long_x": -56.329884,
+        "region": "North America",
+        "subregion": null,
+        "featureclass": "island"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -56.32988440663502,
+          46.92938873905658
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "scalerank": 5,
+        "name": "Cape Bauld",
+        "comment": null,
+        "name_alt": null,
+        "lat_y": 51.568576,
+        "long_x": -55.430306,
+        "region": "North America",
+        "subregion": null,
+        "featureclass": "cape"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -55.43028723866627,
+          51.56848786015033
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "scalerank": 4,
+        "name": "Cape York",
+        "comment": null,
+        "name_alt": null,
+        "lat_y": 76.218919,
+        "long_x": -68.218612,
+        "region": "North America",
+        "subregion": "Greenland",
+        "featureclass": "cape"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -68.21861731679127,
+          76.21887848515033
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "scalerank": 4,
+        "name": "Nunap Isua",
+        "comment": null,
+        "name_alt": "Cape Farewell",
+        "lat_y": 59.862583,
+        "long_x": -43.90088,
+        "region": "North America",
+        "subregion": "Greenland",
+        "featureclass": "cape"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -43.90080725819752,
+          59.86267731327533
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cluster": true,
+        "point_count": 2,
+        "point_count_abbreviated": 2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -69.48210608632252,
+          12.344079184681945
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cluster": true,
+        "point_count": 12,
+        "point_count_abbreviated": 12
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -61.712996996153265,
+          14.464441617331886
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "scalerank": 5,
+        "name": "Cape Morris Jesup",
+        "comment": null,
+        "name_alt": null,
+        "lat_y": 83.626331,
+        "long_x": -32.491541,
+        "region": "North America",
+        "subregion": "Greenland",
+        "featureclass": "cape"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -32.49150550038502,
+          83.62628815311908
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "scalerank": 5,
+        "name": "Grmsey",
+        "comment": null,
+        "name_alt": null,
+        "lat_y": 66.669359,
+        "long_x": -18.251096,
+        "region": "Europe",
+        "subregion": "Iceland",
+        "featureclass": "island"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -18.251088019916267,
+          66.66937897343158
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "scalerank": 5,
+        "name": "Surtsey",
+        "comment": null,
+        "name_alt": null,
+        "lat_y": 63.217764,
+        "long_x": -20.434929,
+        "region": "Europe",
+        "subregion": "Iceland",
+        "featureclass": "island"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -20.434803840228767,
+          63.21771881718158
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "scalerank": 5,
+        "name": "Is. Martin Vaz",
+        "comment": null,
+        "name_alt": null,
+        "lat_y": -20.559422,
+        "long_x": -29.338439,
+        "region": "Seven seas (open ocean)",
+        "subregion": "Southern Atlantic Ocean",
+        "featureclass": "island"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -29.338429328510017,
+          -20.559502862505923
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "scalerank": 5,
+        "name": "Cape Brewster",
+        "comment": null,
+        "name_alt": null,
+        "lat_y": 70.150754,
+        "long_x": -22.122616,
+        "region": "North America",
+        "subregion": "Greenland",
+        "featureclass": "cape"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -22.122731086322517,
+          70.15088532108783
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cluster": true,
+        "point_count": 2,
+        "point_count_abbreviated": 2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.262318488666256,
+          17.803261332053438
+        ]
+      }
+    }
+  ]
+}

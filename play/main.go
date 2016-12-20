@@ -1,54 +1,90 @@
 package main
 
 import (
-	"log"
 	"fmt"
+	"encoding/json"
+	"io/ioutil"
+	"github.com/MadAppGang/gocluster"
 )
 
-type User struct {
-	Name  string
-	Email string
+type TestPoint struct {
+	Type       string
+	Properties struct {
+			   //we don't need other data
+			   Name string
+		   }
+	Geometry struct {
+			   Coordinates []float64
+		   }
 }
 
-type Admin struct {
-	User
-	Level string
+func (tp *TestPoint)GetCoordinates() cluster.GeoCoordinates {
+	return cluster.GeoCoordinates {
+		Lon: tp.Geometry.Coordinates[0],
+		Lat: tp.Geometry.Coordinates[1],
+	}
 }
 
-func (u *User) Notify() error {
-	log.Printf("User: Sending User Email To %s<%s>\n",
-		u.Name,
-		u.Email)
 
-	return nil
-}
-
-//func (a *Admin) Notify() error {
-//	log.Printf("User: Sending Admin Email To %s<%s>\n",
-//		a.Name,
-//		a.Email)
+//type MercatorPoint struct {
+//	Cluster cluster.ClusterPoint
+//	MercatorX int
+//	MercatorY int
+//}
 //
-//	return nil
+//func mercator(p cluster.ClusterPoint) MercatorPoint {
+//	mp := MercatorPoint{}
+//	mp.Cluster = p
+//	mp.MercatorX =
+//
 //}
 
-type Notifier interface {
-	Notify() error
+func importData(filename string) []*TestPoint {
+	var points = struct {
+		Type     string
+		Features []*TestPoint
+	}{}
+	raw, err := ioutil.ReadFile(filename)
+	if err != nil {
+		fmt.Println(err.Error())
+		return nil
+	}
+	json.Unmarshal(raw, &points)
+	return points.Features
 }
 
-func SendNotification(notify Notifier) error {
-	return notify.Notify()
+type simplePoint struct {
+	Lon, Lat float64
 }
+func (sp simplePoint)GetCoordinates() cluster.GeoCoordinates {
+	return cluster.GeoCoordinates{sp.Lon, sp.Lat}
+}
+
+
+
 
 func main() {
-	admin := &Admin{
-		User: User{
-			Name:  "john smith",
-			Email: "john@email.com",
-		},
-		Level: "super",
+	points := importData("./testdata/places.json")
+
+	c := cluster.NewCluster()
+	geoPoints := make ([]cluster.GeoPoint, len(points))
+	for i := range points {
+		geoPoints[i] = points[i]
 	}
+	c.PointSize = 60
+	c.MaxZoom = 3
+	c.TileSize = 256
+	//c.NodeSize = 64
+	northWest := simplePoint{ 71.36718750000001, -83.79204408779539}
+	southEast := simplePoint{-71.01562500000001,  83.7539108491127 }
+	c.ClusterPoints(geoPoints)
 
-	admin.Notify()
+	result :=c.GetClusters(northWest, southEast, 2)
 
-	fmt.Println("1:", 1 << 3)
+	//result = c.GetTile(0,0,0)
+	fmt.Printf("Getting points: %+v\n length %v \n",result, len(result))
+
+	resultJSON, _ := json.MarshalIndent(result,  "", "  ")
+	fmt.Println(string(resultJSON))
+
 }
