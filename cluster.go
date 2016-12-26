@@ -137,6 +137,26 @@ func (c *Cluster)GetClusters(northWest, southEast GeoPoint, zoom int) []ClusterP
 	return result
 }
 
+// AllClusters returns all cluster points, array of ClusterPoint,  for zoom on the map.
+// X coordinate of returned object is Longitude and.
+// Y coordinate of returned object is Latitude.
+func (c *Cluster)AllClusters(zoom int) []ClusterPoint {
+	index := c.Indexes[c.limitZoom(zoom)]
+	points := index.Points
+	var result []ClusterPoint = make ([]ClusterPoint, len(points))
+	for i := range points {
+		p := index.Points[i].(*ClusterPoint)
+		cp := *p
+		coordinates :=  ReverseMercatorProjection(cp.X, cp.Y)
+		cp.X = coordinates.Lon
+		cp.Y = coordinates.Lat
+		result[i] = cp
+	}
+
+	return result
+}
+
+
 //return points for  Tile with coordinates x and y and for zoom z
 // return objects with pixel coordinates
 func (c *Cluster)GetTile(x,y,z int) []ClusterPoint {
