@@ -4,6 +4,12 @@ Please look at [godocs here](https://godoc.org/github.com/MadAppGang/gocluster).
 
 Gocluster is a very fast Golang library for geospatial point clustering.
 
+This image is demo of JS library, this will work faster, because Golang is faster :-)
+
+TODO: implement goserver example
+
+![clusters2](https://cloud.githubusercontent.com/assets/25395/11857351/43407b46-a40c-11e5-8662-e99ab1cd2cb7.gif)
+
 The cluster use hierarchical greedy clustering approach.
 The same approach used by Dave Leaver with his fantastic Leaflet.markercluster plugin.
 
