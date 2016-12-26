@@ -124,6 +124,36 @@ func TestCluster_GetClusters(t *testing.T) {
 	//fmt.Printf("getting points %v \n",string(resultJSON))
 }
 
+
+func TestCluster_AllClusters(t *testing.T) {
+	points := importData("./testdata/places.json")
+	if len(points) == 0 {
+		t.Error("Getting empty test data")
+	} else {
+		t.Logf("Getting %v points to test\n", len(points))
+	}
+
+	c := NewCluster()
+	geoPoints := make([]GeoPoint, len(points))
+	for i := range points {
+		geoPoints[i] = points[i]
+	}
+	c.PointSize = 40
+	c.MaxZoom = 17
+	c.TileSize = 512
+	c.NodeSize = 64
+	c.ClusterPoints(geoPoints)
+
+
+	var result []ClusterPoint = c.AllClusters(2)
+	assert.NotEmpty(t, result)
+
+	//resultJSON, _ :=  json.MarshalIndent(result,"","    ")
+	//fmt.Printf("getting points %v \n",string(resultJSON))
+
+	assert.Equal(t, 100, len(result))
+
+}
 func Test_MercatorProjection(t *testing.T) {
 	coor := GeoCoordinates{
 		Lon: -79.04411780507252, //0.2804330060970208
