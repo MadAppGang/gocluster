@@ -64,7 +64,7 @@ You could tweak the `Cluster`:
 |parameter | default value | description |
 |---|---|---|
 |MinZoom | 0 | Minimum zoom level at which clusters are generated |
-|MaxZoom | 16 | Minimum zoom level at which clusters are generated |
+|MaxZoom | 16 | Maximum zoom level at which clusters are generated |
 |PointSize | 40 | Cluster radius, in pixels |
 |TileSize | 512 | Tile extent. Radius is calculated relative to this value |
 |NodeSize | 64 | Minimum zoom level at which clusters are generated |
