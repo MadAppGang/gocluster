@@ -47,7 +47,7 @@ func TestCluster_GetTile00(t *testing.T) {
 	assert.NotEmpty(t, result)
 
 	expectedPoints := importPoints("./testdata/expect_tile0_0_0.json")
-	assert.Equal(t, result, expectedPoints)
+	assert.Equal(t, expectedPoints, result)
 }
 
 //validate original result from JS library
@@ -73,10 +73,10 @@ func TestCluster_GetTileDefault(t *testing.T) {
 	for i := range result {
 		rp := result[i]
 		ep := expectedPoints[i]
-		assert.Equal(t, rp.X, ep.Geometry[0][0])
-		assert.Equal(t, rp.Y, ep.Geometry[0][1])
-		if rp.NumPoints > 1 {
-			assert.Equal(t, rp.NumPoints, ep.Tags.PointCount)
+		assert.Equal(t, rp.getX(), ep.Geometry[0][0])
+		assert.Equal(t, rp.getY(), ep.Geometry[0][1])
+		if rp.getNumPoints() > 1 {
+			assert.Equal(t, rp.getNumPoints(), ep.Tags.PointCount)
 		}
 
 	}
@@ -112,12 +112,14 @@ func TestCluster_GetClusters(t *testing.T) {
 	for i := range result {
 		rp := result[i]
 		ep := expectedPoints[i]
-		assert.True(t, floatEquals(rp.X, ep.Geometry.Coordinates[0]))
-		assert.True(t, floatEquals(rp.Y, ep.Geometry.Coordinates[1]))
-		if rp.NumPoints > 1 {
-			assert.Equal(t, rp.NumPoints, ep.Properties.PointCount)
-		}
 
+		t.Logf("Zoom", rp.getZoom())
+		t.Logf("Coordinates are:", rp.getX(), ep.Geometry.Coordinates[0])
+		assert.True(t, floatEquals(rp.getX(), ep.Geometry.Coordinates[0]))
+		assert.True(t, floatEquals(rp.getY(), ep.Geometry.Coordinates[1]))
+		if rp.getNumPoints() > 1 {
+			assert.Equal(t, rp.getNumPoints(), ep.Properties.PointCount)
+		}
 	}
 
 	//resultJSON, _ :=  json.MarshalIndent(result,"","    ")
@@ -209,7 +211,7 @@ func ExampleCluster_GetClusters() {
 
 	var result []ClusterPoint = c.GetClusters(northWest, southEast, 2)
 	fmt.Printf("%+v",result[:3])
-	// Output: [{X:-14.473194953510028 Y:26.157965399212813 zoom:1 Id:107 NumPoints:1} {X:-12.408741828510014 Y:58.16339752811905 zoom:1 Id:159 NumPoints:1} {X:-9.269962828651519 Y:42.928736057812586 zoom:1 Id:127 NumPoints:1}]
+	// Output: [{X:-14.473194953510028 Y:26.157965399212813 zoom:2 Id:107 NumPoints:1} {X:-12.408741828510014 Y:58.16339752811905 zoom:2 Id:159 NumPoints:1} {X:-9.269962828651519 Y:42.928736057812586 zoom:2 Id:127 NumPoints:1}]
 }
 
 ////Helpers
@@ -263,15 +265,18 @@ func importData(filename string) []*TestPoint {
 }
 
 func importPoints(filename string) []ClusterPoint {
-	var result []ClusterPoint
+	var loaded []clusterPoint
 	raw, err := ioutil.ReadFile(filename)
 	if err != nil {
 		fmt.Println(err.Error())
 		return nil
 	}
-	json.Unmarshal(raw, &result)
+	json.Unmarshal(raw, &loaded)
+	result := make([]ClusterPoint, len(loaded))
+	for i, d := range loaded {
+		result[i] = d
+	}
 	return result
-
 }
 
 func importGeoJSONResultFeature(filename string) []GeoJSONResultFeature {
