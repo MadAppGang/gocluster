@@ -23,24 +23,20 @@ type GeoPoint interface {
 }
 
 type ClusterCustomizer interface {
-	GeoPoint2ClusterPoint(point GeoPoint, i int) ClusterPoint
-	AggregateClusterPoints(point ClusterPoint, aggregated []ClusterPoint) ClusterPoint
+	GeoPoint2ClusterPoint(point GeoPoint) ClusterPoint
+	AggregateClusterPoints(point ClusterPoint, aggregated []ClusterPoint, zoom int) ClusterPoint
 }
 
 type defaultCustomizer struct {
 
 }
 
-func (dc defaultCustomizer) GeoPoint2ClusterPoint(point GeoPoint, i int) ClusterPoint {
+func (dc defaultCustomizer) GeoPoint2ClusterPoint(point GeoPoint) ClusterPoint {
 	cp := clusterPoint{}
-	cp.zoom = InfinityZoomLevel
-	cp.X, cp.Y = MercatorProjection(point.GetCoordinates())
-	cp.NumPoints = 1
-	cp.Id = i
 	return cp
 }
 
-func (dc defaultCustomizer) AggregateClusterPoints(point ClusterPoint, aggregated []ClusterPoint) ClusterPoint {
+func (dc defaultCustomizer) AggregateClusterPoints(point ClusterPoint, aggregated []ClusterPoint, zoom int) ClusterPoint {
 	return point
 }
 
@@ -388,9 +384,9 @@ func (c *Cluster)clusterize(points []ClusterPoint, zoom int) []ClusterPoint {
 
 		//create new cluster
 		if len(foundNeighbours)>0 {
-			c.ClusterCustomizer.AggregateClusterPoints(newCluster, foundNeighbours)
+			newCluster = c.ClusterCustomizer.AggregateClusterPoints(newCluster, foundNeighbours, zoom)
 			newCluster = newCluster.setX(wx / float64(nPoints))
-			newCluster = newCluster.setY( wy / float64(nPoints))
+			newCluster = newCluster.setY(wy / float64(nPoints))
 			newCluster = newCluster.setNumPoints(nPoints)
 			newCluster = newCluster.setZoom(InfinityZoomLevel)
 			newCluster = newCluster.setId(c.clusterIDLast)
@@ -417,7 +413,16 @@ func (c *Cluster)limitZoom(zoom int) int {
 func (c *Cluster) translateGeoPointsToClusterPoints(points []GeoPoint) []ClusterPoint {
 	var result = make([]ClusterPoint, len(points))
 	for i, p := range points {
-		cp := c.ClusterCustomizer.GeoPoint2ClusterPoint(p, i)
+		cp := c.ClusterCustomizer.GeoPoint2ClusterPoint(p)
+		cp = cp.setZoom(InfinityZoomLevel)
+		X, Y := MercatorProjection(p.GetCoordinates())
+		cp = cp.setX(X)
+		cp = cp.setY(Y)
+
+		cp = cp.setNumPoints(1)
+
+		cp = cp.setId(i)
+
 		result[i] = cp
 	}
 	return result

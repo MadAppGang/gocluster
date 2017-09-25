@@ -1,13 +1,15 @@
 package cluster
 
 import (
-	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
+	"io/ioutil"
+	"encoding/json"
 )
+
+
 
 func TestNewCluster(t *testing.T) {
 	points := importData("./testdata/places.json")
@@ -213,6 +215,8 @@ func ExampleCluster_GetClusters() {
 	fmt.Printf("%+v",result[:3])
 	// Output: [{X:-14.473194953510028 Y:26.157965399212813 zoom:2 Id:107 NumPoints:1} {X:-12.408741828510014 Y:58.16339752811905 zoom:2 Id:159 NumPoints:1} {X:-9.269962828651519 Y:42.928736057812586 zoom:2 Id:127 NumPoints:1}]
 }
+
+
 
 ////Helpers
 type simplePoint struct {
