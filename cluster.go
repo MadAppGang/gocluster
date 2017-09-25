@@ -22,6 +22,28 @@ type GeoPoint interface {
 	GetCoordinates() GeoCoordinates
 }
 
+type ClusterCustomizer interface {
+	GeoPoint2ClusterPoint(point GeoPoint, i int) ClusterPoint
+	AggregateClusterPoints(point ClusterPoint, aggregated []ClusterPoint) ClusterPoint
+}
+
+type defaultCustomizer struct {
+
+}
+
+func (dc defaultCustomizer) GeoPoint2ClusterPoint(point GeoPoint, i int) ClusterPoint {
+	cp := ClusterPoint{}
+	cp.zoom = InfinityZoomLevel
+	cp.X, cp.Y = MercatorProjection(point.GetCoordinates())
+	cp.NumPoints = 1
+	cp.Id = i
+	return cp
+}
+
+func (dc defaultCustomizer) AggregateClusterPoints(point ClusterPoint, aggregated []ClusterPoint) ClusterPoint {
+	return ClusterPoint{}
+}
+
 //Struct that implements clustered points
 //could have only one point or set of points
 type ClusterPoint struct {
@@ -54,10 +76,11 @@ type Cluster struct {
 	NodeSize  int
 	Indexes   []*kdbush.KDBush
 	Points    []GeoPoint
-
+	ClusterCustomizer ClusterCustomizer
 	ClusterIdxSeed int
 	clusterIDLast int
 }
+
 
 // Create new Cluster instance with default parameters:
 // MinZoom = 0
@@ -72,6 +95,18 @@ func NewCluster() *Cluster {
 		PointSize: 40,
 		TileSize:  512,
 		NodeSize:  64,
+		ClusterCustomizer: defaultCustomizer{},
+	}
+}
+
+func NewClusterFromCustomizer (customizer ClusterCustomizer) *Cluster {
+	return &Cluster{
+		MinZoom:   0,
+		MaxZoom:   16,
+		PointSize: 40,
+		TileSize:  512,
+		NodeSize:  64,
+		ClusterCustomizer: customizer,
 	}
 }
 
@@ -96,7 +131,7 @@ func (c *Cluster) ClusterPoints(points []GeoPoint) error {
 	c.clusterIDLast = c.ClusterIdxSeed
 
 
-	clusters := translateGeoPointsToClusterPoints(points)
+	clusters := c.translateGeoPointsToClusterPoints(points)
 
 	for z := c.MaxZoom; z >= c.MinZoom; z-- {
 
@@ -323,15 +358,11 @@ func (c *Cluster)limitZoom(zoom int) int {
 /////////////////////////////////
 
 //translate geopoints to ClusterPoints witrh projection coordinates
-func translateGeoPointsToClusterPoints(points []GeoPoint) []*ClusterPoint {
+func (c *Cluster) translateGeoPointsToClusterPoints(points []GeoPoint) []*ClusterPoint {
 	var result = make([]*ClusterPoint, len(points))
 	for i, p := range points {
-		cp := ClusterPoint{}
-		cp.zoom = InfinityZoomLevel
-		cp.X, cp.Y = MercatorProjection(p.GetCoordinates())
+		cp := c.ClusterCustomizer.GeoPoint2ClusterPoint(p, i)
 		result[i] = &cp
-		cp.NumPoints = 1
-		cp.Id = i
 	}
 	return result
 }
@@ -358,12 +389,6 @@ func ReverseMercatorProjection(x, y float64) GeoCoordinates {
 //count number of digits, for example 123356 will return 6
 func digitsCount(a int) int {
 	return  int(math.Floor(math.Log10( math.Abs (float64(a))))) + 1
-	//result := 0
-	//for a != 0 {
-	//	a /= 10
-	//	result += 1
-	//}
-	//return result
 }
 
 func clustersToPoints(points []*ClusterPoint) []kdbush.Point {
