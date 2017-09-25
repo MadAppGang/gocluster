@@ -22,6 +22,7 @@ type GeoPoint interface {
 	GetCoordinates() GeoCoordinates
 }
 
+// If you want to customize the algorithm, for example to track the points that clusterized you should provide this type
 type ClusterCustomizer interface {
 	GeoPoint2ClusterPoint(point GeoPoint) ClusterPoint
 	AggregateClusterPoints(point ClusterPoint, aggregated []ClusterPoint, zoom int) ClusterPoint
@@ -150,6 +151,8 @@ func NewCluster() *Cluster {
 	}
 }
 
+// Create new Cluster with given customizer and default parameters
+// Same as NewCluster but allows changing the clustering result
 func NewClusterFromCustomizer (customizer ClusterCustomizer) *Cluster {
 	return &Cluster{
 		MinZoom:   0,
