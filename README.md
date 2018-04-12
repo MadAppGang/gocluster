@@ -29,7 +29,7 @@ for i := range points {
 }
 //3.Build index
 c.ClusterPoints(geoPoints)
-//3.Get tour tile with mercator coordinate projections to display directly on the map
+//4.Get tour tile with mercator coordinate projections to display directly on the map
 result := c.GetTile(0,0,0)
 ```
 
@@ -67,8 +67,7 @@ You could tweak the `Cluster`:
 |MaxZoom | 16 | Minimum zoom level at which clusters are generated |
 |PointSize | 40 | Cluster radius, in pixels |
 |TileSize | 512 | Tile extent. Radius is calculated relative to this value |
-|NodeSize | 64 | Minimum zoom level at which clusters are generated |
-|MaxZoom | 16 | NodeSize is size of the KD-tree node. Higher means faster indexing but slower search, and vise versa. |
+|NodeSize | 64 | NodeSize is size of the KD-tree node. Higher means faster indexing but slower search, and vise versa. |
 
 ## Search point in boundary box
 
