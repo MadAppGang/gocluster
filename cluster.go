@@ -119,7 +119,7 @@ func (c *Cluster) ClusterPoints(points []GeoPoint) error {
 // return the object for clustered points,
 // X coordinate of returned object is Longitude and
 // Y coordinate of returned object is Latitude
-func (c *Cluster)GetClusters(northWest, southEast GeoPoint, zoom int) []ClusterPoint {
+func (c *Cluster)GetClusters(northWest GeoPoint, southEast GeoPoint, zoom int) []ClusterPoint {
 	index := c.Indexes[c.limitZoom(zoom)]
 	nwX, nwY := MercatorProjection(northWest.GetCoordinates())
 	seX, seY := MercatorProjection(southEast.GetCoordinates())
